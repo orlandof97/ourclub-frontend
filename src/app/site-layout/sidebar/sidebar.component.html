@@ -1,0 +1,19 @@
+<a *ngIf="role=='ADM'" style="background-color: #ffffcc" routerLink="products/add-product" class="list-group-item">
+  Adicionar produto
+</a>
+<a *ngIf="role=='ADM'" style="background-color: #ffffcc" routerLink="products/add-category" class="list-group-item">
+  Adicionar Categoria
+</a>
+<a *ngIf="role=='ADM'" style="background-color: #ffffcc" routerLink="products/add-subcategory" class="list-group-item">
+  Adicionar SubCategoria
+</a>
+<div *ngIf="role == 'ADM' || role == 'CLIENTE'">
+  <div  class="dropdown " *ngFor="let catg of categoryList, let i = index">
+    <button class="dropbtn">{{catg.description}}</button>
+    <div class="dropdown-content">
+      <a href="products/category/{{subCatg.id}}" *ngFor="let subCatg of categoryList[i].subCategs,let j = index">{{subCatg.description}}</a>
+    </div>
+  </div>
+
+</div>
+

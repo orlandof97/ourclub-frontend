@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+@import 'variavel';
+@import '../node_modules/font-awesome/scss/font-awesome.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.title {
+    margin-top: 2%;
+    margin-bottom: 1rem !important;
+}
+
+.text-red {
+    color: #dc3545;
+}
+  
+.form-required::after {
+    content: " * ";
+    font-size: 0.8em;
+    color: #dc3545 !important;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-top: 2%;
+    text-align: left; 
+}
+
+.buttonSave {
+    margin-bottom: 10px;
+}
+
+.inputImage {
+    margin-top: 36px;
+}
+
+.styleIcon {
+    font-size: 30px;
+}

@@ -1,0 +1,29 @@
+<ng-container>
+  <div style="margin-bottom: 15%;" class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Codigo do pedido</th>
+              <th>Descricao do pedido</th>
+              <th>Valor Total</th>
+              <th>Pagamento</th>
+              <th>Rastreio</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor=" let sale of salesList">
+              <td>{{sale.code}}</td>
+              <td>{{sale.description}}</td>
+              <td>{{sale.total}}</td>
+              <td>Pendente</td>
+              <td><a routerLink="/tracking">{{sale.delivery.tracking ? sale.delivery.tracking : 'Indisponivel'}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>

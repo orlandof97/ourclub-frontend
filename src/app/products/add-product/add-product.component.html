@@ -1,0 +1,91 @@
+<form [formGroup]="form" (keydown.enter)="$event.preventDefault()" class="row g-3">
+  <div class="col-12 col-md-12">
+    <h3 class="title">Adicionar Produto</h3>
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="title" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.title}">Título</small>
+          </label>
+          <input type="text" class="form-control" formControlName="title" [ngClass]="setErrorValidate('title')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.title"
+            [innerHTML]="validateMessage.messageDisplay.title"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="value" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.value}">Preço</small>
+          </label>
+          <input type="number" class="form-control" formControlName="value" [ngClass]="setErrorValidate('value')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.value"
+            [innerHTML]="validateMessage.messageDisplay.value"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="categoryId" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.categoryId}">Categoria</small>
+          </label>
+          <select class="form-control" formControlName="categoryId" (ngModelChange)="getSubCategory($event)"
+            [ngClass]="setErrorValidate('categoryId')">
+            <option value="">Selecione</option>
+            <option *ngFor="let catg of categoryList" [value]="catg.id">{{catg.description}}</option>
+          </select>
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.categoryId"
+            [innerHTML]="validateMessage.messageDisplay.categoryId"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="subCategoryId" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.subCategoryId}">Sub-Categoria</small>
+          </label>
+          <select class="form-control" formControlName="subCategoryId" [ngClass]="setErrorValidate('subCategoryId')">
+            <option value="">Selecione</option>
+            <option *ngFor="let subCatg of subCategoryList" [value]="subCatg.id">{{subCatg.description}}</option>
+          </select>
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.subCategoryId"
+            [innerHTML]="validateMessage.messageDisplay.subCategoryId"></small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="gender" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.gender}">Gênero</small>
+          </label>
+          <select class="form-control" formControlName="gender" [ngClass]="setErrorValidate('gender')">
+            <option value="MASCULINO">Masculino</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="OUTRO">Outro</option>
+          </select>
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.gender"
+            [innerHTML]="validateMessage.messageDisplay.gender"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="input-group">
+          <div class="custom-file inputImage">
+            <input type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon04"
+              formControlName="images" (change)="getFile($event)" [ngClass]="setErrorValidate('images')" multiple>
+            <label class="custom-file-label" for="inputGroupFile04">Selecione a Imagem</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <div class="form-group">
+          <label for="imagem" class="label">
+            <small>Descrição</small>
+          </label>
+          <textarea class="form-control" formControlName="description"></textarea>
+        </div>
+      </div>
+    </div>
+    <button type="submit" (click)="criarProduto()" [disabled]="!enableShipping()"
+      class="btn btn-primary float-right buttonSave">Salvar</button>
+  </div>
+</form>

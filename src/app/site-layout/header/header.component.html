@@ -1,0 +1,39 @@
+<nav *ngIf="role == 'ADM' || role == 'CLIENTE'" class="navbar navbar-light navbar-expand-md">
+  <div class="container">
+    <a class="navbar-brand" href="#"></a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1">
+      <span class="visually-hidden">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Div relacionada ao botão de home -->
+    <div class="styleIcon homePosition">
+      <a role="button" routerLink="products"><i class="fa fa-home"></i></a>
+    </div>
+
+    <!-- Div relacionada a barra de busca -->
+    <div class="input-group">
+      <input class="form-control search-bar" type="text" [(ngModel)]="busca" />
+      <button class="search" (click)="search()" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </div>
+
+    <!-- Div relacionada ao botão de carrinho -->
+    <div class="styleIcon cartPosition">
+      <a role="button" routerLink="cart"><i class="fa fa-shopping-cart"></i></a>
+    </div>
+
+    <!-- Div relacionada ao botão de Ver gerenciar pedidos -->
+    <div class="cartPosition">
+      <a *ngIf="role == 'ADM'" class="btn btn-primary ms-auto" role="button" routerLink="pedidos-adm">Gerenciar
+        Pedidos</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-user fa-lg" aria-hidden="true"></i> &nbsp;Olá, {{user}}</button>
+    <div class="dropdown-content">
+      <a href="/pedidos">Pedidos</a>
+      <a (click)="reload()">Sair</a>
+    </div>
+  </div>
+</nav>

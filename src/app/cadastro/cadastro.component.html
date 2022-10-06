@@ -1,0 +1,153 @@
+<form [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+  <div class="col-md-12 box">
+    <h4 class="title">Cadastrar</h4>
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="nome" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.nome}">Nome</small>
+          </label>
+          <input type="text" class="form-control" formControlName="nome" [ngClass]="setErrorValidate('nome')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.nome"
+            [innerHTML]="validateMessage.messageDisplay.nome"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="sobreNome" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.sobreNome}">Sobrenome</small>
+          </label>
+          <input type="text" class="form-control" formControlName="sobreNome" [ngClass]="setErrorValidate('sobreNome')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.sobreNome"
+            [innerHTML]="validateMessage.messageDisplay.sobreNome"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="email" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.email}">E-mail</small>
+          </label>
+          <input type="text" class="form-control" formControlName="email" placeholder="you@example.com"
+            [ngClass]="setErrorValidate('email')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.email"
+            [innerHTML]="validateMessage.messageDisplay.email"></small>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="senha" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.senha}">Senha</small>
+          </label>
+          <input type="password" class="form-control" formControlName="senha" [ngClass]="setErrorValidate('senha')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.senha"
+            [innerHTML]="validateMessage.messageDisplay.senha"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="telefone" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.telefone}">Telefone</small>
+          </label>
+          <input type="text" class="form-control" formControlName="telefone" mask="(00) 0 0000-0000"
+            [ngClass]="setErrorValidate('telefone')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.telefone"
+            [innerHTML]="validateMessage.messageDisplay.telefone"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="telefone" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.genero}">Gênero</small>
+          </label>
+          <select type="text" class="form-control" formControlName="genero" [ngClass]="setErrorValidate('genero')">
+            <option value="">Selecione</option>
+            <option value="MASCULINO">Masculino</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="OUTRO">Outro</option>
+          </select>
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.genero"
+            [innerHTML]="validateMessage.messageDisplay.genero"></small>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="cep" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.cep}">CEP</small>
+          </label>
+          <input type="text" class="form-control" formControlName="cep" mask="99999-999"
+            [ngClass]="setErrorValidate('cep')" (ngModelChange)="onChange($event)">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.cep"
+            [innerHTML]="validateMessage.messageDisplay.cep"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="estado" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.estado}">Estado</small>
+          </label>
+          <input type="text" class="form-control" formControlName="estado" [ngClass]="setErrorValidate('estado')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.estado"
+            [innerHTML]="validateMessage.messageDisplay.estado"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="cidade" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.cidade}">Cidade</small>
+          </label>
+          <input type="text" class="form-control" formControlName="cidade" [ngClass]="setErrorValidate('cidade')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.cidade"
+            [innerHTML]="validateMessage.messageDisplay.cidade"></small>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="rua" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.rua}">Rua</small>
+          </label>
+          <input type="text" class="form-control" formControlName="rua" [ngClass]="setErrorValidate('rua')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.rua"
+            [innerHTML]="validateMessage.messageDisplay.rua"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="numEndereco" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.numEndereco}">Número</small>
+          </label>
+          <input type="text" class="form-control" formControlName="numEndereco"
+            [ngClass]="setErrorValidate('numEndereco')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.numEndereco"
+            [innerHTML]="validateMessage.messageDisplay.numEndereco"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="bairro" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.bairro}">Bairro</small>
+          </label>
+          <input type="text" class="form-control" formControlName="bairro" [ngClass]="setErrorValidate('bairro')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.bairro"
+            [innerHTML]="validateMessage.messageDisplay.bairro"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="complemento" class="label">
+            <small>Complemento</small>
+          </label>
+          <input type="text" class="form-control" formControlName="complemento">
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" (click)="criarUsuario()" [disabled]="!enableShipping()"
+      class="w-100 btn btn-primary button">Salvar</button>
+  </div>
+</form>
