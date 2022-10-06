@@ -1,5 +1,6 @@
 import { CartService } from './../cart.service';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cart',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+  public baseUrl = environment.apiUrl;
+
   public products: any = [];
   public grandTotal = 0;
 
@@ -15,24 +18,24 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.cartService.getCart();
-    this.products.map((a:any)=>{
+    this.products.map((a: any) => {
       this.grandTotal += a.total;
     });
   }
 
-  removeCartItem(product:any) {
+  removeCartItem(product: any) {
     this.cartService.removeCartItem(product)
     this.products = this.cartService.getCart();
     this.grandTotal = 0;
-    this.products.map((a:any)=>{
+    this.products.map((a: any) => {
       this.grandTotal += a.total;
     });
   }
 
 
-  emptycart(){
+  emptycart() {
     window.location.replace("/products");
     this.products = []
-    localStorage.setItem("cart",JSON.stringify(this.products));
+    localStorage.setItem("cart", JSON.stringify(this.products));
   }
 }

@@ -1,16 +1,19 @@
-import { CartService } from './../../cart.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../product.service';
-import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
-import { FormBase } from 'src/shared/utils/form-base';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { FormBase } from 'src/shared/utils/form-base';
+import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
+import { ProductService } from '../product.service';
+import { CartService } from './../../cart.service';
 
 @Component({
   selector: 'app-view-product',
   templateUrl: './view-product.component.html'
 })
 export class ViewProductComponent extends FormBase implements OnInit {
+
+  public baseUrl = environment.apiUrl;
 
   searchId: any;
   productData: any;

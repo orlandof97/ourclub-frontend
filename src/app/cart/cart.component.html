@@ -1,4 +1,4 @@
-<ng-container  *ngIf="products.length> 0">
+<ng-container *ngIf="products.length> 0">
   <div style="margin-bottom: 15%;" class="container">
     <div class="card-table">
       <div class="cart-product">
@@ -19,7 +19,7 @@
           <tbody>
             <tr *ngFor="let item of products; let i = index">
               <td>{{item.title}}</td>
-              <td><img style="width: 120px;" src="http://localhost:8080/{{item.images[0].url}}" alt="imagem do produto"></td>
+              <td><img style="width: 120px;" src="{{baseUrl}}{{item.images[0].url}}" alt="imagem do produto"></td>
               <td>{{item.sizeDesc}}</td>
               <td>{{item.value}} {{item.personValue ? '+' + item.personValue : ''}}</td>
               <td>{{item.name}}</td>
@@ -32,7 +32,7 @@
             </tr>
             <tr>
               <td colspan="4"></td>
-              <td><button (click)="emptycart()"  class="btn btn-danger">Limpar Carrinho</button></td>
+              <td><button (click)="emptycart()" class="btn btn-danger">Limpar Carrinho</button></td>
               <td><button routerLink="/products" class="btn btn-primary">Comprar mais</button></td>
               <td><button routerLink="/checkout" class="btn btn-success">Checkout</button></td>
               <td><strong>Total: R$:{{grandTotal}},00</strong></td>
@@ -50,7 +50,9 @@
       <h5 class="card-title">Meu carrinho</h5>
     </div>
     <div class="center">
-      <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+      <img
+        src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+        alt="">
       <h4>Seu carrinho está vazio</h4>
     </div>
   </div>

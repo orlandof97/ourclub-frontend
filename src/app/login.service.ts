@@ -1,16 +1,19 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { from, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private HttpClient: HttpClient) { }
+  constructor(
+    private HttpClient: HttpClient
+  ) { }
 
-  login(user:any): Observable<any> {
-    const baseUrl="http://localhost:8080/api/v1/auth";
+  login(user: any): Observable<any> {
+    const baseUrl = environment.apiUrl + "api/v1/auth";
     return this.HttpClient.post<any>(baseUrl, user);
   }
 }

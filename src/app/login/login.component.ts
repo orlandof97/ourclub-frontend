@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
 import { LoginService } from '../login.service';
 
@@ -8,6 +9,9 @@ import { LoginService } from '../login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  public baseUrl = environment.apiUrl;
+
   public email: any;
   public password: any;
   public user: any;
