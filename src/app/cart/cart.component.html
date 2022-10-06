@@ -27,7 +27,7 @@
               <td>{{item.quantity}}</td>
               <td>{{item.quantity*(item.value + item.personValue)}}</td>
               <td>
-                <button (click)="removeCartItem(item)" class="btn btn-danger">Remover</button>
+                <button (click)="removeCartItem(item)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
               </td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
               <td><button (click)="emptycart()" class="btn btn-danger">Limpar Carrinho</button></td>
               <td><button routerLink="/products" class="btn btn-primary">Comprar mais</button></td>
               <td><button routerLink="/checkout" class="btn btn-success">Checkout</button></td>
-              <td><strong>Total: R$:{{grandTotal}},00</strong></td>
+              <td><strong>Total: R${{grandTotal}},00</strong></td>
             </tr>
           </tbody>
         </table>
