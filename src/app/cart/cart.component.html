@@ -20,7 +20,7 @@
             <tr *ngFor="let item of products; let i = index">
               <td>{{item.title}}</td>
               <td><img style="width: 120px;"
-                  src="http://ec2-3-12-152-137.us-east-2.compute.amazonaws.com/{{item.images[0].url}}"
+                  src="https://ourclub-backend.herokuapp.com/{{item.images[0].url}}"
                   alt="imagem do produto"></td>
               <td>{{item.sizeDesc}}</td>
               <td>{{item.value}} {{item.personValue ? '+' + item.personValue : ''}}</td>
