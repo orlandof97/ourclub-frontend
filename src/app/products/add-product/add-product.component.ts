@@ -45,7 +45,6 @@ export class AddProductComponent extends FormBase implements OnInit {
   }
 
   criarProduto() {
-    console.log(this.form.value);
     if (this.enableShipping()) {
       var formData = new FormData();
       formData.append("title", this.form.value.title);
@@ -59,12 +58,10 @@ export class AddProductComponent extends FormBase implements OnInit {
       formData.append("description", this.form.value.description);
       this.productService.createProduct(formData).subscribe(
         data => {
-          console.log(data);
           SweetalertCustom.showAlertTimer('success', MSG_SUCCES).then(() => {
             this.router.navigate(['/products']);
           });
         });
-      // window.location.href = "/products";
     }
   }
 
